@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IT Seminar Student Registration Form">
+    <title>IT Seminar | Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page-wrapper">
+    <section class="registration-card">
+        <header class="form-header">
+            <div class="logo"><span>IT</span></div>
+            <div>
+                <p class="school-name">UNIVERSIDAD DE DAGUPAN</p>
+                <h1>IT Seminar Registration</h1>
+                <p class="subtitle">School of Information Technology Education</p>
+            </div>
+        </header>
+
+        <div class="header-line"></div>
+        <p class="intro">Register for the upcoming IT seminar. Please provide accurate information and complete all required fields.</p>
+
+        <form id="registrationForm" novalidate>
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" autocomplete="name"
+                           placeholder="Enter your full name" required
+                           aria-describedby="fullNameError" aria-invalid="false">
+                    <small id="fullNameError" class="error-message" role="alert"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentNumber">Student Number <span class="required">*</span></label>
+                    <input type="text" id="studentNumber" name="studentNumber"
+                           placeholder="24-1234-123" autocomplete="off" required
+                           aria-describedby="studentNumberError" aria-invalid="false">
+                    <small id="studentNumberError" class="error-message" role="alert"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email"
+                           placeholder="student@example.com" required
+                           aria-describedby="emailError" aria-invalid="false">
+                    <small id="emailError" class="error-message" role="alert"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber"
+                           placeholder="09171234567" autocomplete="tel" required
+                           aria-describedby="mobileNumberError" aria-invalid="false">
+                    <small id="mobileNumberError" class="error-message" role="alert"></small>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Account Information</legend>
+
+                <div class="form-group">
+                    <label for="password">Password <span class="required">*</span></label>
+                    <input type="password" id="password" name="password"
+                           autocomplete="new-password" placeholder="Create a secure password" required
+                           aria-describedby="passwordFeedback passwordError" aria-invalid="false">
+                    <div id="passwordFeedback" class="password-feedback" aria-live="polite"></div>
+                    <small id="passwordError" class="error-message" role="alert"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                           autocomplete="new-password" placeholder="Re-enter your password" required
+                           aria-describedby="confirmPasswordError" aria-invalid="false">
+                    <small id="confirmPasswordError" class="error-message" role="alert"></small>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Academic Information</legend>
+
+                <div class="form-group">
+                    <label for="course">Course <span class="required">*</span></label>
+                    <select id="course" name="course" required
+                            aria-describedby="courseError" aria-invalid="false">
+                        <option value="">Select your course.</option>
+                        <option value="BSIT">Bachelor of Science in Information Technology (BSIT)</option>
+                        <option value="BSCS">Bachelor of Science in Computer Science (BSCS)</option>
+                    </select>
+                    <small id="courseError" class="error-message" role="alert"></small>
+                </div>
+            </fieldset>
+
+            <div class="terms-box">
+                <label class="checkbox-label" for="terms">
+                    <input type="checkbox" id="terms" name="terms" required
+                           aria-describedby="termsError" aria-invalid="false">
+                    <span>I confirm that the information I provided is accurate and I agree to the seminar registration terms.</span>
+                </label>
+                <small id="termsError" class="error-message" role="alert"></small>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" id="registerBtn" class="btn btn-primary">Register</button>
+                <button type="reset" id="resetBtn" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message" role="status" aria-live="polite" hidden></div>
+
+        <section id="registrationSummary" class="registration-summary"
+                 aria-labelledby="summaryTitle" hidden>
+            <div class="summary-header">
+                <div class="success-icon">✓</div>
+                <div>
+                    <h2 id="summaryTitle">Registration Summary</h2>
+                    <p>Your information has been successfully validated.</p>
+                </div>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <span>Full Name</span>
+                    <strong id="summaryName"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Student Number</span>
+                    <strong id="summaryStudentNumber"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Email Address</span>
+                    <strong id="summaryEmail"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Mobile Number</span>
+                    <strong id="summaryMobileNumber"></strong>
+                </div>
+                <div class="summary-item">
+                    <span>Course</span>
+                    <strong id="summaryCourse"></strong>
+                </div>
+            </div>
+
+            <p class="security-note">Your password is not displayed for security.</p>
+        </section>
+
+        <footer>
+            <p>ITP10 | Event-Driven Programming</p>
+            <p>Semester 1 • Academic Year 2026–2027</p>
+        </footer>
+    </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
